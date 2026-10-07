@@ -1,0 +1,73 @@
+{
+    "pipeline": "DE7 Data Quality Checks",
+    "file": "data/raw/customer_churn.csv",
+    "checks": [
+        {
+            "check_name": "Null rate - monthly_charges",
+            "status": "PASS",
+            "value_found": "0.00%",
+            "threshold": "<= 0.00%",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Null rate - tenure",
+            "status": "PASS",
+            "value_found": "0.00%",
+            "threshold": "<= 0.00%",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Value range - tenure",
+            "status": "PASS",
+            "value_found": "min=0, max=72",
+            "threshold": "0 - 100",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Value range - monthly_charges",
+            "status": "PASS",
+            "value_found": "min=18.25, max=118.75",
+            "threshold": ">= 1e-06",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Allowed values - contract",
+            "status": "PASS",
+            "value_found": [
+                "Month-to-month",
+                "One year",
+                "Two year"
+            ],
+            "threshold": [
+                "Month-to-month",
+                "One year",
+                "Two year"
+            ],
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Row count",
+            "status": "PASS",
+            "value_found": 7043,
+            "threshold": ">= 7000",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "No duplicates - customer_id",
+            "status": "PASS",
+            "value_found": "0 duplicate rows",
+            "threshold": "0 duplicates",
+            "severity": "CRITICAL"
+        },
+        {
+            "check_name": "Churn distribution",
+            "status": "PASS",
+            "value_found": {
+                "0": 5174,
+                "1": 1869
+            },
+            "threshold": "Both 0 and 1 classes present",
+            "severity": "WARNING"
+        }
+    ]
+}
